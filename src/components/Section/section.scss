@@ -1,0 +1,75 @@
+@use '@/styles/variables' as *;
+
+.section {
+    font-family: sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding: 12px;
+    gap: 16px;
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--surface);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        border: 1px solid var(--accent);
+        transform: translateY(-2px);
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.05);
+    }
+
+    &__square {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 48px;
+        min-height: 48px;
+        background-color: var(--iversion);
+        border-radius: 10px;
+
+        &-icon {
+                width: 50%;
+                height: 50%;
+            }
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    &__title {
+        font-weight: 700;
+
+    }
+
+    &__description {
+        color: var(--text-secondary);
+        font-size: small;
+    }
+
+    &__counter {
+        text-align: center;
+        margin-left: auto;
+        background-color: var(--bg);
+        padding: 8px;
+        border-radius: 15px;
+        font-size: small;
+        color: var(--text-secondary);
+    }
+
+    &__arrow {
+        min-width: 20px;
+
+        &-icon {
+                width: 8px;
+                height: 8px;
+                border-top: 2px solid var(--text-secondary);
+                border-right: 2px solid var(--text-secondary);
+                transform: rotate(45deg);
+            }
+    }
+}

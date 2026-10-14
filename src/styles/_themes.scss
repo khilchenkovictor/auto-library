@@ -1,0 +1,25 @@
+@use './variables' as *;
+
+:root {
+    --bg: #{$light-bg};
+    --surface: #{$white};
+    --text: #{$black};
+    --text-secondary: #{$secondary-text-light-theme};
+    --accent: #{$blue};
+    --border: #{$blue};
+    --iversion: #{$orange};
+    --inversion-text: #{$white};
+    --border: #{$light-border};
+}
+
+[data-theme='dark'] {
+    --bg: #{$dark-bg};
+    --surface: #{$darkgrey};
+    --text: #{$white};
+    --text-secondary: #{$secondary-text-dark-theme};
+    --accent: #{$orange};
+    --border: #{$orange};
+    --iversion: #{$blue};
+    --inversion-text: #{$black};
+    --border: #{$light-border};
+}

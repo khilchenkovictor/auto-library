@@ -1,0 +1,33 @@
+// breakpoints
+$breakpoints: (
+    mobile: 728px,
+    tablet: 984px,
+    tablet-lg: 1400px,
+    desktop: 1680px
+);
+
+// content width
+$content-width: (
+    mobile: 100%,
+    tablet: 648px,
+    tablet-lg: 904px,
+    desktop: 1320px,
+    desktop-lg: 1600px
+);
+
+$black: black;
+$white: white;
+$darkgrey: #1c1f24;
+
+// Buttons backgrounds
+$blue: #0084ef;
+$orange: #f96f16;
+
+// Main backgrounds
+$light-bg: #f1f6fa;
+$dark-bg: #0f1216;
+
+$secondary-text-light-theme: #626d7d;
+$secondary-text-dark-theme: #707e94;
+
+$light-border: #e2e8f0;

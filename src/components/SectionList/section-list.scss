@@ -1,0 +1,41 @@
+@use '@/styles/variables' as *;
+
+.container {
+    
+
+    .main {
+
+        &__content {
+
+            @media (max-width: map-get($breakpoints, mobile)) {
+                    width: map-get($content-width, mobile);
+                    padding: {
+                        left: 12px;
+                        right: 12px;
+                    };
+                    width: auto;
+            }
+        }
+
+        &__list {
+            display: grid;
+            gap: 8px;
+            grid-template-columns: 1fr 1fr;
+
+            @media (max-width: map-get($breakpoints, tablet-lg)) {
+                width: map-get($content-width, tablet-lg);
+                    grid-template-columns: 1fr
+            }
+
+            @media (max-width: map-get($breakpoints, tablet)) {
+                width: map-get($content-width, tablet);
+                    grid-template-columns: 1fr
+            }
+
+            @media (max-width: map-get($breakpoints, mobile)) {
+                width: map-get($content-width, mobile);
+                    grid-template-columns: 1fr
+            }
+        }
+    }
+}
