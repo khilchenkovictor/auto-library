@@ -7,8 +7,10 @@ function HomePage() {
     return(
         <>
             <Header />
-            <Hero />
-            <SectionList />
+            <main>
+                <Hero />
+                <SectionList />
+            </main >
         </>
     );
 };

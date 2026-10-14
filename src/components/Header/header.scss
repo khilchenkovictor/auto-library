@@ -1,4 +1,5 @@
 @use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .header {
     font-family: sans-serif;
@@ -37,9 +38,7 @@
     }
 
     &__bg {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex-center;
         background-color: var(--accent);
         width: 35px;
         height: 35px;
@@ -69,12 +68,12 @@
         &-item {
             font-weight: 700;
             cursor: pointer;
-            color: $secondary-text-light-theme;
 
         }
         
         &-link {
-
+            text-decoration: none;
+            color: var(--text-secondary);
         }
 
     }
@@ -86,9 +85,7 @@
     }
 
     &__themes {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex-center;
         cursor: pointer;
         width: 34px;
         height: 34px;
@@ -111,5 +108,6 @@
         cursor: pointer;
         font: inherit;
         color: var(--inversion-text);
+        text-decoration: none;
     }
 }

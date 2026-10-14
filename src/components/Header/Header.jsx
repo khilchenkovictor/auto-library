@@ -1,6 +1,7 @@
 import { BiUser } from "react-icons/bi";
 import { FaRegMoon } from "react-icons/fa";
 import { FaBusAlt } from "react-icons/fa";
+import { Link } from 'react-router';
 import './header.scss';
 
 function Header() {
@@ -15,16 +16,16 @@ function Header() {
                             className='header__bg-icon'
                         />
                     </div>
-                    <h1 className='header__title'>АвтоТехДовідник</h1>
+                    <h1 className='header__title'>АвтоТехСправочник</h1>
                 </div>
 
                 <nav className='header__menu'>
                     <ul className='header__menu-list'>
                         <li className='header__menu-item'>
-                            <a className='header__menu-link'>Головна</a>
+                            <Link to='/' className='header__menu-link'>Главная</Link>
                         </li>
                         <li className='header__menu-item'>
-                            <a className='header__menu-link'>Форум</a>
+                            <Link to='/forum' className='header__menu-link'>Форум</Link>
                         </li>
                     </ul>
                 </nav>
@@ -33,10 +34,10 @@ function Header() {
                     <div className='header__themes'>
                         <FaRegMoon />
                     </div>
-                    <button className='header__auth'>
+                    <Link to='/auth' className='header__auth'>
                         <BiUser className="header__auth-icon"/>
-                        <span className='header__auth-text'>Вхід / Реєстрація</span>
-                    </button>
+                        <span className='header__auth-text'>Вход / Регистрация</span>
+                    </Link>
                 </div>
 
             </div>
