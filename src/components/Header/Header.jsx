@@ -1,11 +1,32 @@
+import { useState, useEffect } from 'react';
+
 import { BiUser } from "react-icons/bi";
-import { FaRegMoon } from "react-icons/fa";
-import { FaBusAlt } from "react-icons/fa";
+import { FiSun } from "react-icons/fi";
+import { FaRegMoon, FaBusAlt } from "react-icons/fa";
 import { Link } from 'react-router';
 import './header.scss';
 
+function getSavedTheme() {
+    return localStorage.getItem('theme') || 'light';
+}
+
 function Header() {
 
+    const [theme, setTheme] = useState(getSavedTheme);
+
+    function toogleTheme() {
+        setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
+    }
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }, [theme]);
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+    }, [])
 
     return (
         <header className='container header'>
@@ -31,9 +52,13 @@ function Header() {
                 </nav>
 
                 <div className='header__buttons'>
-                    <div className='header__themes'>
-                        <FaRegMoon />
-                    </div>
+                    <button 
+                        className='header__themes'
+                        onClick={toogleTheme}
+
+                    >
+                        {theme === 'light' ? <FaRegMoon /> : <FiSun />}
+                    </button>
                     <Link to='/auth' className='header__auth'>
                         <BiUser className="header__auth-icon"/>
                         <span className='header__auth-text'>Вход / Регистрация</span>

@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-y: scroll;
+}
+
 body {
-    background-color: #f1f6fa;
+    background-color: var(--bg);
 }

@@ -74,12 +74,15 @@
         box-sizing: border-box;
         border: none;
         margin: 5px;
+        color: var(--text-secondary);
+        background-color: var(--surface);
 
         &:focus {
             outline: none;
         }
 
         &-icon {
+            color: var(--text-secondary);
             min-height: 20px;
             min-width: 20px;
             margin: {
