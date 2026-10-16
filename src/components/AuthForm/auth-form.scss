@@ -37,10 +37,14 @@
         width: 151px;
         padding: 8px 16px;
         border-radius: 8px;
-        
-        color: var(--inversion-text);
-        background-color: var(--accent);
         cursor: pointer;
+        color: var(--text);
+        background-color: var(--bg);
+
+        &.active {
+            color: var(--inversion-text);
+            background-color: var(--accent);
+        }
     }
 
     &__registr {
@@ -49,9 +53,13 @@
         padding: 8px 16px;
         border-radius: 8px;
         cursor: pointer;
-
         color: var(--text);
         background-color: var(--bg);
+
+        &.active {
+            color: var(--inversion-text);
+            background-color: var(--accent);
+        }
 
     }
 
@@ -86,6 +94,20 @@
         &:focus {
             border: 1px solid var(--text-secondary);
         }
+    }
+
+    &__name {
+        outline: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: 1px solid var(--border);
+        background-color: var(--surface);
+        color: var(--text-secondary);
+    
+        &:focus {
+            border: 1px solid var(--text-secondary);
+        }
+
     }
 
     &__submit {

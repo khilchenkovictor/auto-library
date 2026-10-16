@@ -1,8 +1,19 @@
+import { useState } from 'react';
+import clsx from 'clsx';
 import { FcGoogle } from "react-icons/fc";
 import { FaTelegramPlane } from "react-icons/fa";
 import './auth-form.scss';
 
 function AuthForm() {
+
+    const [isRegister, setIsRegister] = useState(false);
+
+    function toggleForm() {
+        setIsRegister((prev) => !prev);
+    };
+
+    const enterButtonClass = clsx('auth__enter', { 'active': !isRegister });
+    const registerButtonClass = clsx('auth__registr', { 'active': isRegister });
 
     return (
         <div className='container auth'>
@@ -10,19 +21,55 @@ function AuthForm() {
                 <form className='auth__form'>
 
                     <div className='auth__switch'>
-                        <button className='auth__enter' type="button" id='enter'>
+                        <button 
+                            className={enterButtonClass}
+                            type='button'
+                            id='enter'
+                            onClick={toggleForm}
+                        >
                             Вход
                         </button>
-                        <button className='auth__registr' type="button" id='registr'>
+                        <button 
+                            className={registerButtonClass}
+                            type='button'
+                            id='registr'
+                            onClick={toggleForm}
+                        >
                             Регистрация
                         </button>
                     </div>
 
                     <div className='auth__input'>
-                        <input className='auth__email' type='email' placeholder='Почта'/>
-                        <input className='auth__password' type='password' placeholder='Пароль' />
-                        <button className='auth__submit' id='submit' type='submit'>
-                            Войти
+                        {isRegister && (
+                            <input
+                                className='auth__name'
+                                type='text'
+                                placeholder='Имя'
+                            />
+                        )}
+                        <input 
+                            className='auth__email' 
+                            type='email' 
+                            placeholder='Почта'
+                        />
+                        <input 
+                            className='auth__password' 
+                            type='password' 
+                            placeholder='Пароль' 
+                        />
+                        {isRegister && (
+                            <input
+                                className='auth__password'
+                                type='password'
+                                placeholder='Подтвердите пароль'
+                            />
+                        )}
+                        <button 
+                            className='auth__submit' 
+                            id='submit' 
+                            type='submit'
+                        >
+                            {isRegister ? 'Зарегистрироваться' : 'Войти'}
                         </button>
                     </div>
 

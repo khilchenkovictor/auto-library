@@ -14,7 +14,7 @@ function Hero() {
                         <input 
                             className='hero__input' 
                             id='search'
-                            placeholder="Поиск по темам..."
+                            placeholder="Поиск по разделам..."
                         />
                     </div>
                 </div>
