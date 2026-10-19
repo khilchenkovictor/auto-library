@@ -2,8 +2,9 @@
 @use '@/styles/mixins' as *;
 
 .auth {
-    min-height: calc(100vh - 70px);
 
+    min-height: calc(100vh - 70px);
+    
     &__content {
         @include flex-center;
         min-height: inherit;

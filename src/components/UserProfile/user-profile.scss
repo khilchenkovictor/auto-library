@@ -1,0 +1,51 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.profile {
+    &__content {}
+
+    &__top {}
+
+    &__edit {}
+
+    &__info {}
+
+    &__photo {}
+
+    &__text {}
+
+    &__name {}
+
+    &__username {}
+
+    &__email {}
+
+    &__middle {}
+
+    &__access {}
+
+    &__status {}
+
+    &__search {
+
+    }
+
+    &__input {
+
+        &:focus {
+            outline: none;
+        }
+
+        &-icon {
+
+        }
+    }
+
+    &__activate {}
+
+    &__bottom {}
+
+    &__buy {}
+
+    &__logout {}
+}

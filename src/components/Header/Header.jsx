@@ -59,6 +59,7 @@ function Header() {
                     >
                         {theme === 'light' ? <FaRegMoon /> : <FiSun />}
                     </button>
+                    
                     <Link to='/auth' className='header__auth'>
                         <BiUser className="header__auth-icon"/>
                         <span className='header__auth-text'>Вход / Регистрация</span>
