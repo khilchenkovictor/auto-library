@@ -86,14 +86,15 @@
 
     &__password {
         outline: none;
-        padding: 6px 12px;
+        padding: 6px 40px 6px 12px;
         border-radius: 4px;
-        border: 1px solid var(--border);
+        border: none;
         background-color: var(--surface);
         color: var(--text-secondary);
+        width: 100%;
 
         &:focus {
-            border: 1px solid var(--text-secondary);
+            outline: none;
         }
     }
 
@@ -108,7 +109,19 @@
         &:focus {
             border: 1px solid var(--text-secondary);
         }
+    }
 
+    &__username {
+        outline: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        border: 1px solid var(--border);
+        background-color: var(--surface);
+        color: var(--text-secondary);
+
+        &:focus {
+            border: 1px solid var(--text-secondary);
+        }
     }
 
     &__submit {
@@ -182,6 +195,37 @@
 
         &:hover {
             text-decoration: underline;
+        }
+    }
+
+    &__input-container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+        border: 1px solid var(--border);
+        background-color: var(--surface);
+
+        &:focus-within {
+            border: 1px solid var(--text-secondary);
+        }
+    }
+
+    &__eye {
+        position: absolute;
+        right: 10px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+
+        &:hover {
+            color: var(--text);
         }
     }
 }

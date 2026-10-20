@@ -2,14 +2,20 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import { FcGoogle } from "react-icons/fc";
 import { FaTelegramPlane } from "react-icons/fa";
+import { FiEye, FiEyeOff } from 'react-icons/fi';
 import './auth-form.scss';
 
 function AuthForm() {
 
     const [isRegister, setIsRegister] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
 
     function toggleForm() {
         setIsRegister((prev) => !prev);
+    };
+
+    function togglePassword() {
+        setIsVisible((prev) => !prev);
     };
 
     const enterButtonClass = clsx('auth__enter', { 'active': !isRegister });
@@ -41,33 +47,60 @@ function AuthForm() {
 
                     <div className='auth__input'>
                         {isRegister && (
-                            <input
-                                className='auth__name'
-                                type='text'
-                                placeholder='Имя'
-                            />
+                            <>
+                                <input
+                                    className='auth__name'
+                                    type='text'
+                                    placeholder='Имя'
+                                />
+                                <input 
+                                    className='auth__username' 
+                                    type='text' 
+                                    placeholder='Username'
+                                />
+                            </>
                         )}
                         <input 
                             className='auth__email' 
                             type='email' 
                             placeholder='Почта'
                         />
-                        <input 
-                            className='auth__password' 
-                            type='password' 
-                            placeholder='Пароль' 
-                        />
-                        {isRegister && (
+                        <div className='auth__input-container'>
                             <input
                                 className='auth__password'
-                                type='password'
-                                placeholder='Подтвердите пароль'
+                                type={isVisible ? 'text' : 'password'}
+                                placeholder='Пароль'
                             />
+
+                            <button
+                                className='auth__eye'
+                                type='button'
+                                onClick={togglePassword}
+                            >
+                                {isVisible ? <FiEyeOff /> : <FiEye />}
+                            </button>
+                        </div>
+                        {isRegister && (
+                            <div className='auth__input-container'>
+                                <input
+                                    className='auth__password'
+                                    type={isVisible ? 'text' : 'password'}
+                                    placeholder='Подтвердите пароль'
+                                />
+
+                                <button 
+                                    className='auth__eye'
+                                    type='button'
+                                    onClick={togglePassword}
+                                >
+                                    {isVisible ? <FiEyeOff /> : <FiEye />}
+                                </button>
+                            </div>
                         )}
                         <button 
                             className='auth__submit' 
                             id='submit' 
-                            type='submit'
+                            type='button'
                         >
                             {isRegister ? 'Зарегистрироваться' : 'Войти'}
                         </button>
@@ -77,8 +110,8 @@ function AuthForm() {
                         <span className='auth__or-text'>или</span>
                     </div>
 
-                    <div className='auth__alternative' type="button">
-                        <button className='auth__google'>
+                    <div className='auth__alternative'>
+                        <button className='auth__google' type='button'>
                             <FcGoogle />
                         </button>
                         <button className='auth__telegram' type="button">

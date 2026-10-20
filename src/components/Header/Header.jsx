@@ -23,11 +23,6 @@ function Header() {
         localStorage.setItem('theme', theme);
     }, [theme]);
 
-    useEffect(() => {
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        setTheme(savedTheme);
-    }, [])
-
     return (
         <header className='container header'>
             <div className='content header__content'>
