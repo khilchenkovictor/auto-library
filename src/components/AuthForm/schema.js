@@ -31,7 +31,6 @@ const username = z
 
 const confirm = z
     .string()
-    .trim()
     .min(1, 'Подтвердите пароль')
 
 export const loginSchema = z

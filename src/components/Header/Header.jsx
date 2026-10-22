@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import { useAuth } from '@/context/AuthContext';
 import { BiUser } from "react-icons/bi";
 import { FiSun } from "react-icons/fi";
 import { FaRegMoon, FaBusAlt } from "react-icons/fa";
@@ -13,6 +13,8 @@ function getSavedTheme() {
 function Header() {
 
     const [theme, setTheme] = useState(getSavedTheme);
+
+    const { user } = useAuth();
 
     function toogleTheme() {
         setTheme((prev) => (prev === 'light' ? 'dark' : 'light'))
@@ -55,10 +57,17 @@ function Header() {
                         {theme === 'light' ? <FaRegMoon /> : <FiSun />}
                     </button>
                     
-                    <Link to='/auth' className='header__auth'>
-                        <BiUser className="header__auth-icon"/>
-                        <span className='header__auth-text'>Вход / Регистрация</span>
-                    </Link>
+                    {user ? (
+                        <Link to='/profile' className='header__auth'>
+                            <BiUser className="header__auth-icon"/>
+                            <span className='header__auth-text'>{user.name}</span>
+                        </Link>
+                    ) : (
+                        <Link to='/auth' className='header__auth'>
+                            <BiUser className="header__auth-icon" />
+                            <span className='header__auth-text'>Вход / Регистрация</span>
+                        </Link>
+                    )}
                 </div>
 
             </div>

@@ -13,6 +13,13 @@ export default defineConfig({
       '@components': path.resolve(__dirname, './src/components'),
       '@data': path.resolve(__dirname, './src/data'),
       '@styles': path.resolve(__dirname, './src/styles'),
+      '@context': path.resolve(__dirname, './src/context'),
+    },
+  },
+
+  server: { 
+    proxy: { 
+      '/api': 'http://localhost:3000' 
     },
   },
 
